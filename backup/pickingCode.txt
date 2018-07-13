@@ -1,0 +1,73 @@
+		if(p_input.isMouseClicked(MngInput.M_LEFT)){
+			drawForSelection(p_input.m_nMouseRawX, p_input.m_nMouseRawY);
+		}
+
+
+	public void drawForSelection(int p_nX, int p_nY){
+		GL gl= App.g_CurrentGL;
+
+		IntBuffer bufHits= BufferUtil.newIntBuffer(64);
+		IntBuffer bufViewport= BufferUtil.newIntBuffer(4);
+		int nNbHits;
+		int id;
+
+		gl.glSelectBuffer(64, bufHits);
+		gl.glGetIntegerv(GL.GL_VIEWPORT, bufViewport);
+		gl.glRenderMode(GL.GL_SELECT);
+		gl.glInitNames();
+		gl.glPushName(0);
+
+		gl.glMatrixMode(GL.GL_PROJECTION);
+		gl.glPushMatrix();
+		gl.glLoadIdentity();
+
+		App.m_objGLU.gluPickMatrix(p_nX, bufViewport.get(3)-p_nY, 5.0, 5.0, bufViewport);
+		App.m_objGLU.gluPerspective(60, 1.0, 0.0001, 1000.0);
+
+		gl.glMatrixMode(GL.GL_MODELVIEW);
+
+		App.g_CurrentDrawable.swapBuffers();
+
+		for(int i= 0; i < m_vecPhysObj.size(); ++i){
+			PhysObj physObject= m_vecPhysObj.get(i);
+
+			if(physObject.isKindOf(Obj.IDCLASS_Object3D)){
+				gl.glLoadName(i);
+				((DrawableObj)physObject).draw();
+			}
+		}
+
+		gl.glMatrixMode(GL.GL_PROJECTION);
+		gl.glPopMatrix();
+
+
+		nNbHits= gl.glRenderMode(GL.GL_RENDER);
+
+		list_hits(nNbHits, bufHits);
+
+		gl.glMatrixMode(GL.GL_MODELVIEW);
+	}
+
+	public void list_hits(int p_nNbHits, IntBuffer p_bufHits){
+		/*
+		For each hit in the buffer are allocated 4 bytes:
+		1. Number of hits selected (always one,
+							beacuse when we draw each object we use glLoadName, so we replace the prevous name in the stack)
+		2. Min Z
+		3. Max Z
+		4. Name of the hit (glLoadName)
+		*/
+
+		System.out.printf("%d hits:\n", p_nNbHits);
+
+		for(int i= 0; i < p_nNbHits; ++i){
+			PhysObj physObj= m_vecPhysObj.get(p_bufHits.get(i*4 + 3));
+			if(physObj.isKindOf(Obj.IDCLASS_Object3D))
+				m_objInHand= (Object3D)physObj;
+
+			System.out.printf(	"Number: %d\nMin Z: %d\nMax Z: %d\nName on stack: %d\n",
+								p_bufHits.get(i*4), p_bufHits.get(i*4 + 1), p_bufHits.get(i*4 + 2), p_bufHits.get(i*4 + 3));
+
+			System.out.print("\n");
+		}
+	}
