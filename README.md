@@ -14,8 +14,8 @@ HOW TO COMPILE
     http://www.oracle.com/technetwork/java/javase/downloads/jdk-netbeans-jsp-142931.html
     
 - Get the Directories structure right for proper post-compile tasks
-  - /Lib/Bianisoft2 : <----- This project
-  - /Games/OneParticularGame
+  - /Lib/Bianisoft2
+  - /Games/OneParticularGame <--- This Game goes here
   - /Tools/OneParticulaTool
   
 - Right Click on project, Properties, Librairies
