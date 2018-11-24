@@ -60,7 +60,7 @@ public class AppJavaTest extends App{
 		addContext(new MyContext8());
 		addContext(new MyContext9());
 		addContext(new MyContextA());
-		setCurContext(ID_CTXA);
+		setCurContext(ID_CTX1);
 	}
 
    public static void main(String[] args){
