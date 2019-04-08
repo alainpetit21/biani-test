@@ -90,7 +90,7 @@ public class MyContext2 extends Context {
 		}
 
 		if (p_mngInput.isMouseClicked(MngInput.M_LEFT)){
-			m_objMD2OfficerPearl.moveTo(m_objMouse.getPosX(), m_objMouse.getPosY(), 0, 0, 0, 0, 1000);
+			m_objMD2OfficerPearl.AddMoveTo(m_objMouse.getPosX(), m_objMouse.getPosY(), 0, 0, 0, 0, 1000);
 		}else if (p_mngInput.isMouseClicked(MngInput.M_RIGHT)){
 			App.g_theApp.setCurContext(AppJavaTest.ID_CTX1);
 		}

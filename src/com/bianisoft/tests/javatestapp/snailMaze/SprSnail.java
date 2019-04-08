@@ -26,7 +26,7 @@ public class SprSnail extends Sprite{
 		float posX= (p_nPosX*20)-290;
 		float posY= (p_nPosY*20)-70;
 
-		super.moveTo(posX, posY, p_nPosZ, 1000);
+		super.AddMoveTo(posX, posY, p_nPosZ, 1000);
 	}
 	
 	public void moveRight(){

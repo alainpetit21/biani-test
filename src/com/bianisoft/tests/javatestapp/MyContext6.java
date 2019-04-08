@@ -83,7 +83,7 @@ public class MyContext6 extends Context {
 				m_objCam.zoomTo(ZOOMING_LEVEL[m_nZoomLevel], 1000);
 
 				if(m_nZoomLevel <= 1)
-					m_objCam.moveTo(0, 0, m_objCam.getPosZ(), 0, 0, m_objCam.getAngleZ(), 1000);
+					m_objCam.AddMoveTo(0, 0, m_objCam.getPosZ(), 0, 0, m_objCam.getAngleZ(), 1000);
 			}
 		}
 

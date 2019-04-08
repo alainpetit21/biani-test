@@ -163,17 +163,17 @@ public class MyContext4 extends Context {
 	public void rotate(){
 		if(m_isInclined){
 			switch(m_nHiglightPlayer){
-			case 0:	m_objCam.moveTo(0, 4, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
-			case 1:	m_objCam.moveTo(-4, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
-			case 2:	m_objCam.moveTo(0, -4, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
-			case 3:	m_objCam.moveTo(4, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
+			case 0:	m_objCam.AddMoveTo(0, 4, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
+			case 1:	m_objCam.AddMoveTo(-4, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
+			case 2:	m_objCam.AddMoveTo(0, -4, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
+			case 3:	m_objCam.AddMoveTo(4, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
 			}
 		}else{
 			switch(m_nHiglightPlayer){
-			case 0:	m_objCam.moveTo(0, 0.04f, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
-			case 1:	m_objCam.moveTo(-0.04f, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
-			case 2:	m_objCam.moveTo(0, -0.04f, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
-			case 3:	m_objCam.moveTo(0.04f, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
+			case 0:	m_objCam.AddMoveTo(0, 0.04f, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
+			case 1:	m_objCam.AddMoveTo(-0.04f, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
+			case 2:	m_objCam.AddMoveTo(0, -0.04f, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);	break;
+			case 3:	m_objCam.AddMoveTo(0.04f, 0, -20, m_objCam.getAngleX(), m_objCam.getAngleY(), m_objCam.getAngleZ(), 1000);		break;
 			}
 		}			
 	}

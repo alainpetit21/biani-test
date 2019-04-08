@@ -59,7 +59,7 @@ public class MyContext5 extends Context {
 			m_nCurImage= 0;
 		}
 
-		m_objCam.moveTo(m_nCurImage * 1024, 0, 3000);
+		m_objCam.AddMoveTo(m_nCurImage * 1024, 0, 3000);
 	}
 
 	public void prevImage(){
@@ -67,7 +67,7 @@ public class MyContext5 extends Context {
 			m_nCurImage= m_arImage.length-1;
 		}
 
-		m_objCam.moveTo(m_nCurImage * 1024, 0, 3000);
+		m_objCam.AddMoveTo(m_nCurImage * 1024, 0, 3000);
 	}
 
 	public boolean keyboardManage(MngInput p_mngInput){
